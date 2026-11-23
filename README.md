@@ -25,7 +25,7 @@ Este repositorio contiene **la landing page** y el link del juego Beta.
 
 ---
 
-##Link del juego
+## Link del juego
 [🎮 Jugar The Last Spartan](https://2026b-sof-jueg-gr1.github.io/alpusig-erick-jueg-gr3/)
 
 ---
