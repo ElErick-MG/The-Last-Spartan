@@ -1,0 +1,38 @@
+---
+import HeroScene from './HeroScene.astro';
+---
+
+<section class="hero" id="hero" aria-labelledby="hero-title">
+  <div class="hero__scene">
+    <HeroScene />
+  </div>
+  <canvas class="hero__embers" data-embers aria-hidden="true"></canvas>
+
+  <div class="container hero__content">
+    <p class="hero__eyebrow">
+      <span class="hero__beta">BETA · PARTE 1</span>
+      UN JUEGO DE ACCIÓN NARRATIVA 2D / 2.5D HÍBRIDO
+    </p>
+    <h1 class="hero__title" id="hero-title">THE LAST SPARTAN</h1>
+    <p class="hero__tagline">
+      Buscó la gloria lejos de su hogar… y dejó la puerta abierta a la muerte.
+    </p>
+    <div class="hero__actions">
+      <button class="btn btn--primary" type="button" data-modal-open>
+        Ver avance del proyecto
+      </button>
+      <a class="btn" href="#pitch">Explorar el pitch del proyecto</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { mountEmbersCanvas } from '../scripts/features/embers-canvas.js';
+  import { mountSafely } from '../scripts/core/mount.js';
+
+  const canvas = document.querySelector('[data-embers]');
+
+  if (canvas) {
+    mountSafely('hero-embers', () => mountEmbersCanvas(canvas));
+  }
+</script>

@@ -1,0 +1,40 @@
+---
+import { STORY_SCENES } from '../data/story-scenes.js';
+---
+
+<section class="section story" id="historia" aria-labelledby="historia-title">
+  <div class="container">
+    <p class="story__eyebrow reveal">Parte I · El precio de la gloria</p>
+    <h2 class="section__title reveal" id="historia-title">
+      Tres escenas. Un precio que pagar.
+    </h2>
+    <p class="section__lead reveal">
+      La misma clase de valentía que lo lleva al campo de batalla es la que lo deja
+      sin saber defender su propia puerta.
+    </p>
+
+    <div class="story__grid">
+      {STORY_SCENES.map((scene) => (
+        <article class="story__chapter reveal">
+          <div class="story__media">
+            <img
+              src={scene.image}
+              alt={scene.alt}
+              width="1920"
+              height="1072"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="story__chapter-number" aria-hidden="true">{scene.chapter}</span>
+          </div>
+          <div class="story__body">
+            <p class="story__kicker">{scene.kicker}</p>
+            <h3 class="story__chapter-title">{scene.title}</h3>
+            <p class="story__text">{scene.description}</p>
+            <p class="story__beat">{scene.beat}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

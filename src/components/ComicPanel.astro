@@ -1,0 +1,61 @@
+---
+import { COMIC_PANELS } from '../data/comic-panels.js';
+---
+
+<div class="comic-panel" data-comic>
+  {COMIC_PANELS.map((panel, index) => (
+    <article
+      class="comic-panel__slide"
+      data-comic-slide
+      data-title={panel.title}
+      hidden={index !== 0}
+    >
+      <div class="comic-panel__art">
+        <img
+          src={panel.image}
+          alt={panel.alt}
+          width="1920"
+          height="1072"
+          loading={index === 0 ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+        <p class="comic-panel__bubble">{panel.quote}</p>
+      </div>
+      <h3 class="comic-panel__title">{panel.title}</h3>
+      <p class="comic-panel__text">{panel.description}</p>
+    </article>
+  ))}
+
+  <div class="comic-panel__controls">
+    <button class="comic-panel__nav" type="button" data-comic-prev aria-label="Viñeta anterior">
+      Anterior
+    </button>
+    <div class="comic-panel__dots">
+      {COMIC_PANELS.map((panel, index) => (
+        <button
+          class="comic-panel__dot"
+          type="button"
+          data-comic-dot
+          aria-label={`Viñeta ${index + 1}: ${panel.title}`}
+          aria-current={index === 0 ? 'true' : 'false'}
+        />
+      ))}
+    </div>
+    <button class="comic-panel__nav" type="button" data-comic-next aria-label="Viñeta siguiente">
+      Siguiente
+    </button>
+  </div>
+
+  <p class="visually-hidden" aria-live="polite" data-comic-status></p>
+</div>
+
+<script>
+  import { mountComicViewer } from '../scripts/features/comic-viewer.js';
+  import { mountSafely } from '../scripts/core/mount.js';
+
+  const root = document.querySelector('[data-comic]');
+
+  if (root) {
+    mountSafely('comic-viewer', () => mountComicViewer(root));
+  }
+</script>

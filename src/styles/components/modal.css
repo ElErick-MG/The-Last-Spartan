@@ -1,0 +1,61 @@
+/**
+ * Modal de tráiler / demo.
+ */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: var(--container-inline);
+  background: rgba(0, 0, 0, 0.88);
+}
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal__dialog {
+  width: 100%;
+  max-width: 760px;
+  padding: var(--space-md);
+  border: 1px solid var(--color-bronze);
+  background: var(--color-bg-raised);
+}
+
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.modal__title {
+  font-size: 1.1rem;
+}
+
+.modal__video {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  margin: 14px 0;
+  border: 1px solid var(--color-line);
+  background: #000;
+  color: var(--color-ash);
+  text-align: center;
+}
+
+.modal__play {
+  color: var(--color-blood-bright);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.modal__note {
+  font-size: 0.95rem;
+}
+
+/* Bloqueo del scroll de fondo mientras el diálogo está abierto. */
+body.has-modal {
+  overflow: hidden;
+}

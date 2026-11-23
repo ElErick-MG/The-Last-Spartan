@@ -1,0 +1,51 @@
+/**
+ * Pie de página.
+ */
+.site-footer {
+  padding: 36px 0 48px;
+  border-top: 1px solid var(--color-line-soft);
+  color: var(--color-ash);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.site-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-ash);
+  font-weight: 500;
+  transition:
+    color var(--duration-fast) var(--easing),
+    transform var(--duration-fast) var(--easing);
+}
+
+.site-footer__icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform var(--duration-fast) var(--easing);
+}
+
+.site-footer__link:hover {
+  color: var(--color-bronze);
+}
+
+.site-footer__link:hover .site-footer__icon {
+  transform: scale(1.1);
+}
+
+.site-footer__credit {
+  margin-top: var(--space-2xs);
+  color: var(--color-ash);
+  font-size: 0.78rem;
+}

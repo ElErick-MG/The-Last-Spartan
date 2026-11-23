@@ -1,0 +1,44 @@
+/**
+ * Navegación fija superior.
+ */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(14px + env(safe-area-inset-top, 0px)) var(--container-inline) 14px;
+  background: linear-gradient(var(--color-bg), transparent);
+}
+
+.site-nav__brand {
+  color: var(--color-bronze);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.site-nav__links {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.site-nav__link {
+  color: var(--color-ash);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--easing);
+}
+
+.site-nav__link:hover {
+  color: var(--color-ink);
+}
+
+@media (max-width: 700px) {
+  .site-nav__links {
+    display: none;
+  }
+}

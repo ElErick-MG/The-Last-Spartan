@@ -1,0 +1,49 @@
+/**
+ * Reset mínimo y predecible.
+ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+figure,
+fieldset,
+blockquote {
+  margin: 0;
+}
+
+fieldset {
+  padding: 0;
+  border: 0;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}

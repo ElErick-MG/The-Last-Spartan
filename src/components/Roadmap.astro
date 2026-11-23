@@ -1,0 +1,55 @@
+---
+import { ROADMAP_STAGES } from '../data/roadmap-stages.js';
+---
+
+<h3 class="roadmap__heading reveal" id="roadmap-title">Roadmap de desarrollo</h3>
+
+<div
+  class="roadmap__tabs"
+  role="tablist"
+  aria-labelledby="roadmap-title"
+  data-roadmap-tabs
+>
+  {ROADMAP_STAGES.map((stage, index) => (
+    <button
+      class="tab"
+      type="button"
+      role="tab"
+      id={`roadmap-tab-${index + 1}`}
+      aria-controls={`roadmap-panel-${index + 1}`}
+      aria-selected={index === 0 ? 'true' : 'false'}
+      tabindex={index === 0 ? 0 : -1}
+    >
+      {stage.label}
+    </button>
+  ))}
+</div>
+
+<div data-roadmap-panels>
+  {ROADMAP_STAGES.map((stage, index) => (
+    <div
+      class="tabpanel"
+      id={`roadmap-panel-${index + 1}`}
+      role="tabpanel"
+      aria-labelledby={`roadmap-tab-${index + 1}`}
+      tabindex="0"
+      hidden={index !== 0}
+    >
+      <span class="tabpanel__badge">{stage.badge}</span>
+      <h3 class="tabpanel__title">{stage.title}</h3>
+      <p class="tabpanel__text">{stage.description}</p>
+    </div>
+  ))}
+</div>
+
+<script>
+  import { mountRoadmapTabs } from '../scripts/features/roadmap-tabs.js';
+  import { mountSafely } from '../scripts/core/mount.js';
+
+  const tablist = document.querySelector('[data-roadmap-tabs]');
+  const panelsRoot = document.querySelector('[data-roadmap-panels]');
+
+  if (tablist && panelsRoot) {
+    mountSafely('roadmap-tabs', () => mountRoadmapTabs(tablist, panelsRoot));
+  }
+</script>

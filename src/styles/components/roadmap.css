@@ -1,0 +1,51 @@
+/**
+ * Roadmap: pestañas de fases y su panel.
+ */
+.roadmap__heading {
+  margin-top: var(--space-2xl);
+}
+
+.roadmap__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: 32px;
+}
+
+.tab {
+  padding: 12px 20px;
+  border: 1px solid var(--color-line-tab);
+  background: none;
+  color: var(--color-ash);
+  font-family: var(--font-display);
+  cursor: pointer;
+}
+
+.tab[aria-selected='true'] {
+  border-color: var(--color-blood-bright);
+  background: var(--color-blood);
+  color: var(--color-ink);
+}
+
+.tabpanel {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-line-tab);
+}
+
+.tabpanel__badge {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  padding: 2px 10px;
+  border: 1px solid var(--color-bronze);
+  color: var(--color-bronze);
+  font-size: 0.75rem;
+}
+
+.tabpanel__title {
+  margin-bottom: var(--space-xs);
+  color: var(--color-bronze);
+}
+
+.tabpanel__text {
+  color: var(--color-ash);
+}

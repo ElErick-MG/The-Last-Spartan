@@ -1,0 +1,65 @@
+---
+import '../styles/tokens.css';
+import '../styles/reset.css';
+import '../styles/base.css';
+import '../styles/utilities.css';
+import '../styles/components/button.css';
+import '../styles/components/site-nav.css';
+import '../styles/components/hero.css';
+import '../styles/components/comic-panel.css';
+import '../styles/components/story-section.css';
+import '../styles/components/card.css';
+import '../styles/components/character-card.css';
+import '../styles/components/roadmap.css';
+import '../styles/components/gallery.css';
+import '../styles/components/signup-form.css';
+import '../styles/components/modal.css';
+import '../styles/components/site-footer.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A0A0C" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&amp;family=Inter:wght@400;500;600&amp;family=Bangers&amp;display=swap"
+    />
+    <!-- Marca JS antes del primer pintado para evitar parpadeos en el scroll-reveal. -->
+    <script is:inline>
+      document.documentElement.classList.replace('no-js', 'js');
+    </script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+    <slot />
+
+    <script>
+      import { mountScrollReveal } from '../scripts/features/scroll-reveal.js';
+      import { mountSafely } from '../scripts/core/mount.js';
+      import { queryAll } from '../scripts/core/dom.js';
+
+      mountSafely('scroll-reveal', () =>
+        mountScrollReveal(queryAll('.reveal')),
+      );
+    </script>
+  </body>
+</html>

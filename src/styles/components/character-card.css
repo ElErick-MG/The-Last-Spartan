@@ -1,0 +1,41 @@
+/**
+ * Ficha de personaje estilo carta de coleccionista.
+ */
+.character-card {
+  padding: var(--space-sm);
+  border: 2px solid var(--color-bronze);
+  background: linear-gradient(160deg, #1c1a1d, #0e0d10);
+}
+
+.character-card__portrait {
+  display: grid;
+  place-items: end center;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 35%, #3a1c1c, #0b0a0c 70%);
+}
+
+.character-card__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.character-card__name {
+  margin: 14px 0 4px;
+  color: var(--color-bronze);
+}
+
+.character-card__quote {
+  display: block;
+  margin: var(--space-xs) 0;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+
+.character-card__text {
+  color: var(--color-ash);
+  font-size: 0.9rem;
+}

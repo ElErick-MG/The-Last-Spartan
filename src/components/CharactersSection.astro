@@ -1,0 +1,28 @@
+---
+import { CHARACTERS } from '../data/characters.js';
+---
+
+<section class="section section--alt" id="personajes" aria-labelledby="personajes-title">
+  <div class="container">
+    <h2 class="section__title reveal" id="personajes-title">Conoce a los protagonistas</h2>
+    <div class="card-grid">
+      {CHARACTERS.map((character) => (
+        <article class="character-card reveal">
+          <div class="character-card__portrait">
+            <img
+              src={character.image}
+              alt={character.alt}
+              width={character.width}
+              height={character.height}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <h3 class="character-card__name">{character.name}</h3>
+          <em class="character-card__quote">{character.quote}</em>
+          <p class="character-card__text">{character.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

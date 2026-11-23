@@ -1,0 +1,60 @@
+/**
+ * Design tokens.
+ * Única fuente de verdad para color, tipografía, espaciado y movimiento.
+ * Los componentes consumen estas variables en lugar de valores literales.
+ */
+:root {
+  /* Paleta */
+  --color-bg: #0a0a0c;
+  --color-bg-raised: #141418;
+  --color-blood: #9e1b1b;
+  --color-blood-bright: #d92626;
+  --color-bronze: #c59b48;
+  --color-ink: #f2efe9;
+  --color-ash: #9a958e;
+  --color-parchment: #e9e1cf;
+  --color-ink-dark: #16130f;
+
+  /* Líneas y bordes */
+  --color-line: #2a2a30;
+  --color-line-soft: #22222a;
+  --color-line-strong: #34343b;
+  --color-line-tab: #2f2f36;
+
+  /* Feedback */
+  --color-danger: #ff7a7a;
+
+  /* Tipografía */
+  --font-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-comic: 'Bangers', Impact, sans-serif;
+
+  /* Escala de espaciado */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 28px;
+  --space-xl: 40px;
+  --space-2xl: 56px;
+  --space-3xl: 96px;
+
+  /* Layout */
+  --container-max: 1080px;
+  --container-inline: 24px;
+  --section-block: var(--space-3xl);
+
+  /* Movimiento */
+  --duration-fast: 0.25s;
+  --duration-slow: 0.7s;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Accesibilidad */
+  --focus-outline: 2px solid var(--color-bronze);
+  --focus-offset: 3px;
+
+  /* Efectos */
+  --glow-bronze: 0 0 22px rgba(197, 155, 72, 0.45);
+  --glow-blood: 0 0 24px rgba(217, 38, 38, 0.6);
+  --text-glow-blood: 0 4px 40px rgba(158, 27, 27, 0.6);
+}

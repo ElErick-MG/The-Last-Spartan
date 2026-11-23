@@ -1,0 +1,27 @@
+---
+import { GALLERY_ITEMS } from '../data/gallery-items.js';
+---
+
+<section class="section section--alt" id="galeria" aria-labelledby="galeria-title">
+  <div class="container">
+    <h2 class="section__title reveal" id="galeria-title">Capturas y arte conceptual</h2>
+    <p class="section__lead">
+      Fotogramas de los tres actos de la Parte 1 y arte conceptual de la familia.
+    </p>
+    <div class="masonry">
+      {GALLERY_ITEMS.map((item) => (
+        <figure class="masonry__item">
+          <img
+            src={item.image}
+            alt={item.alt}
+            width={item.width ?? 1920}
+            height={item.height ?? 1072}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>{item.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

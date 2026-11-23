@@ -1,0 +1,84 @@
+/**
+ * Hero: fotograma de fondo, brasas en canvas y bloque de contenido.
+ */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.hero__scene {
+  position: absolute;
+  inset: 0;
+}
+
+/* El fotograma cubre el viewport; el degradado garantiza contraste del texto. */
+.hero__scene-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.hero__scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 10, 12, 0.92) 0%, rgba(10, 10, 12, 0.55) 46%, rgba(10, 10, 12, 0.15) 100%),
+    linear-gradient(0deg, rgba(10, 10, 12, 0.95) 0%, rgba(10, 10, 12, 0.15) 55%, rgba(10, 10, 12, 0.35) 100%);
+}
+
+.hero__embers {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__eyebrow {
+  margin-bottom: 18px;
+  color: var(--color-bronze);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+}
+
+.hero__beta {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 3px 9px;
+  border: 1px solid var(--color-bronze);
+  letter-spacing: 0.12em;
+  vertical-align: middle;
+}
+
+.hero__title {
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-shadow: var(--text-glow-blood);
+}
+
+.hero__tagline {
+  max-width: 34ch;
+  margin: 22px 0 34px;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-style: italic;
+  text-wrap: balance;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}

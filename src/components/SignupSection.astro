@@ -1,0 +1,128 @@
+---
+/**
+ * Bloque de conversión: formulario funcional de acceso anticipado.
+ * La validación, seguridad anti-spam y envío los gestiona `signup-form.js`.
+ */
+---
+
+<section class="section section--join" id="join" aria-labelledby="join-title">
+  <div class="container">
+    <h2 class="section__title" id="join-title">
+      ¿Listo para cargar con el peso del escudo?
+    </h2>
+    <p class="section__lead section__lead--center">
+      Únete a la vanguardia. Déjanos tu correo para acceder al playtest exclusivo de la
+      beta de la Parte 1 o solicita el press kit oficial y el GDD.
+    </p>
+
+    <div data-signup>
+      <form class="signup" novalidate data-signup-form>
+        {/* Trampas Honeypot invisibles para capturar y neutralizar bots */}
+        <div class="signup__honeypot" aria-hidden="true">
+          <label for="signup-gotcha">No completar este campo</label>
+          <input
+            id="signup-gotcha"
+            name="_gotcha"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+          <input
+            name="_honey"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="signup-name">Nombre</label>
+          <input
+            class="field__input"
+            id="signup-name"
+            name="name"
+            type="text"
+            maxlength="50"
+            autocomplete="name"
+            aria-describedby="signup-name-error"
+            data-signup-name
+          />
+          <p class="field__error" id="signup-name-error" role="alert" data-signup-name-error></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="signup-email">Correo electrónico</label>
+          <input
+            class="field__input"
+            id="signup-email"
+            name="email"
+            type="email"
+            maxlength="80"
+            autocomplete="email"
+            aria-describedby="signup-email-error"
+            data-signup-email
+          />
+          <p class="field__error" id="signup-email-error" role="alert" data-signup-email-error></p>
+        </div>
+
+        <fieldset class="choice-group">
+          <legend class="visually-hidden">Tipo de solicitud</legend>
+          <label class="choice">
+            <input type="radio" name="request" value="playtest" checked />
+            Unirme al playtest
+          </label>
+          <label class="choice">
+            <input type="radio" name="request" value="gdd" />
+            Descargar press kit y GDD
+          </label>
+        </fieldset>
+
+        <button class="btn btn--primary" type="submit">Enviar solicitud</button>
+
+        <div
+          class="field__error field__error--general"
+          role="alert"
+          data-signup-general-error
+          hidden
+        ></div>
+
+        <p class="signup__security-note">
+          <svg
+            class="signup__security-icon"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Filtro anti-spam activo y verificación de correo real.</span>
+        </p>
+      </form>
+
+      <div class="form-success" role="status" data-signup-success hidden>
+        <h3 class="form-success__title" data-signup-success-title>¡Escudo Aceptado!</h3>
+        <p class="form-success__body" data-signup-success-body></p>
+        <button class="btn btn--compact form-success__btn-reset" type="button" data-signup-reset>
+          Enviar otra solicitud
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { mountSignupForm } from '../scripts/features/signup-form.js';
+  import { mountSafely } from '../scripts/core/mount.js';
+
+  const region = document.querySelector('[data-signup]');
+
+  if (region) {
+    mountSafely('signup-form', () => mountSignupForm(region));
+  }
+</script>

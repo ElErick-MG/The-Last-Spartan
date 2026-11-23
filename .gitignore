@@ -1,0 +1,25 @@
+# Generado / dependencias (se regeneran con npm install && npm run build)
+dist/
+.astro/
+node_modules/
+
+# Trabajo privado: documentación de diseño y originales de arte.
+# En el repo se versionan sólo las copias WebP optimizadas de public/images/.
+docs/
+assets/
+
+# Datos y configuración locales de herramientas
+.workbuddy-ai/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Variables de entorno y logs
+.env
+.env.*
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

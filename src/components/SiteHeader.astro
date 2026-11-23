@@ -1,0 +1,12 @@
+---
+import { NAV_LINKS } from '../data/site.js';
+---
+
+<header class="site-nav">
+  <p class="site-nav__brand">THE LAST SPARTAN</p>
+  <nav class="site-nav__links" aria-label="Secciones del sitio">
+    {NAV_LINKS.map((link) => (
+      <a class="site-nav__link" href={link.href}>{link.label}</a>
+    ))}
+  </nav>
+</header>

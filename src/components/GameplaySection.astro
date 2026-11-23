@@ -1,0 +1,23 @@
+---
+import { GAMEPLAY_PILLARS } from '../data/gameplay-pillars.js';
+---
+
+<section class="section" id="juego" aria-labelledby="juego-title">
+  <div class="container">
+    <h2 class="section__title reveal" id="juego-title">El ciclo de juego</h2>
+    <p class="section__lead reveal">
+      Cuatro ideas que sostienen cada combate, cada viñeta y cada regreso a casa.
+    </p>
+    <div class="card-grid">
+      {GAMEPLAY_PILLARS.map((pillar) => (
+        <article class="card reveal">
+          <svg class="card__icon" aria-hidden="true">
+            <use href={`#${pillar.icon}`} />
+          </svg>
+          <h3 class="card__title">{pillar.title}</h3>
+          <p class="card__text">{pillar.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

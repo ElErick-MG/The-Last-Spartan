@@ -1,0 +1,45 @@
+/**
+ * Galería tipo masonry con fotogramas y arte conceptual.
+ */
+.masonry {
+  columns: 3 220px;
+  column-gap: 14px;
+  margin-top: 36px;
+}
+
+.masonry__item {
+  margin: 0 0 14px;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg);
+  break-inside: avoid;
+}
+
+.masonry__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform var(--duration-slow) var(--easing);
+}
+
+.masonry__item:hover img {
+  transform: scale(1.03);
+}
+
+.masonry__item figcaption {
+  padding: 10px 12px;
+  border-top: 1px solid var(--color-line-soft);
+  color: var(--color-ash);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .masonry__item img {
+    transition: none;
+  }
+
+  .masonry__item:hover img {
+    transform: none;
+  }
+}

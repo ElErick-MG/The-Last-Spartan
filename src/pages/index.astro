@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import IconSprite from '../components/IconSprite.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import Hero from '../components/Hero.astro';
+import PremiseSection from '../components/PremiseSection.astro';
+import StorySection from '../components/StorySection.astro';
+import GameplaySection from '../components/GameplaySection.astro';
+import CharactersSection from '../components/CharactersSection.astro';
+import PitchSection from '../components/PitchSection.astro';
+import GallerySection from '../components/GallerySection.astro';
+import SignupSection from '../components/SignupSection.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import TrailerModal from '../components/TrailerModal.astro';
+
+const title = 'The Last Spartan — Landing page oficial';
+const description =
+  'The Last Spartan: acción narrativa 2D / 2.5D híbrida. Historia, personajes, roadmap y acceso anticipado al playtest.';
+---
+
+<BaseLayout title={title} description={description}>
+  <IconSprite />
+  <SiteHeader />
+
+  <main id="contenido">
+    <Hero />
+    <PremiseSection />
+    <StorySection />
+    <GameplaySection />
+    <CharactersSection />
+    <PitchSection />
+    <GallerySection />
+    <SignupSection />
+  </main>
+
+  <SiteFooter />
+  <TrailerModal />
+</BaseLayout>
