@@ -49,3 +49,14 @@ import { withBase } from '../utils/paths.js';
 
   <p class="visually-hidden" aria-live="polite" data-comic-status></p>
 </div>
+
+<script>
+  import { mountComicViewer } from '../scripts/features/comic-viewer.js';
+  import { mountSafely } from '../scripts/core/mount.js';
+
+  const root = document.querySelector('[data-comic]');
+
+  if (root) {
+    mountSafely('comic-viewer', () => mountComicViewer(root));
+  }
+</script>

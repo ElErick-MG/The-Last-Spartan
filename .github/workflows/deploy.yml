@@ -38,7 +38,10 @@ jobs:
         run: npm ci
 
       - name: Compilar sitio con Astro
-        run: npx --no-install astro build
+        run: |
+          npx --no-install astro build \
+            --site "${{ steps.pages.outputs.origin }}" \
+            --base "${{ steps.pages.outputs.base_path }}"
         env:
           ASTRO_TELEMETRY_DISABLED: 1
 
