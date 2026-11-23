@@ -21,9 +21,12 @@ mientras juegas. Al volver, el hogar ya no está.
 | Arte conceptual y fotogramas de las escenas | Tráiler y demo publicables |
 | Landing page estática de presentación (Astro 7) | Playtest y envío real del formulario |
 
-Este repositorio contiene **la landing page**, no el ejecutable del juego. El
-formulario de acceso anticipado valida en el navegador y muestra un mensaje de
-maqueta: todavía no hay backend ni se envía ningún correo.
+Este repositorio contiene **la landing page** y el link del juego Beta.
+
+---
+
+##Link del juego
+[🎮 Jugar The Last Spartan](https://2026b-sof-jueg-gr1.github.io/alpusig-erick-jueg-gr3/)
 
 ---
 
