@@ -1,5 +1,6 @@
 ---
 import { STORY_SCENES } from '../data/story-scenes.js';
+import { withBase } from '../utils/paths.js';
 ---
 
 <section class="section story" id="historia" aria-labelledby="historia-title">
@@ -18,7 +19,7 @@ import { STORY_SCENES } from '../data/story-scenes.js';
         <article class="story__chapter reveal">
           <div class="story__media">
             <img
-              src={scene.image}
+              src={withBase(scene.image)}
               alt={scene.alt}
               width="1920"
               height="1072"

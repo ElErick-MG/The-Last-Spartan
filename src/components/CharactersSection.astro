@@ -1,5 +1,6 @@
 ---
 import { CHARACTERS } from '../data/characters.js';
+import { withBase } from '../utils/paths.js';
 ---
 
 <section class="section section--alt" id="personajes" aria-labelledby="personajes-title">
@@ -10,7 +11,7 @@ import { CHARACTERS } from '../data/characters.js';
         <article class="character-card reveal">
           <div class="character-card__portrait">
             <img
-              src={character.image}
+              src={withBase(character.image)}
               alt={character.alt}
               width={character.width}
               height={character.height}

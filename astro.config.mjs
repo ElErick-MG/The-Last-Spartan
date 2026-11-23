@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  // Astro 7 usa reglas JSX por defecto y elimina espacios entre elementos
-  // inline; `true` conserva la compresión basada en HTML.
+  site: 'https://2026b-sof-jueg-gr1.github.io',
+  base: '/alpusig-erick-jueg-gr3',
   compressHTML: true,
 });
+

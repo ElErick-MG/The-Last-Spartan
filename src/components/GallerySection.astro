@@ -1,5 +1,6 @@
 ---
 import { GALLERY_ITEMS } from '../data/gallery-items.js';
+import { withBase } from '../utils/paths.js';
 ---
 
 <section class="section section--alt" id="galeria" aria-labelledby="galeria-title">
@@ -12,7 +13,7 @@ import { GALLERY_ITEMS } from '../data/gallery-items.js';
       {GALLERY_ITEMS.map((item) => (
         <figure class="masonry__item">
           <img
-            src={item.image}
+            src={withBase(item.image)}
             alt={item.alt}
             width={item.width ?? 1920}
             height={item.height ?? 1072}
