@@ -1,8 +1,9 @@
 ---
 /**
- * Modal de tráiler/demo. Se abre desde cualquier elemento con
- * `data-modal-open`; la interacción la gestiona `trailer-modal.js`.
+ * Modal de avance del proyecto / gameplay beta.
+ * Muestra el video de 2 minutos del juego y el enlace a la versión jugable.
  */
+import { withBase } from '../utils/paths.js';
 ---
 
 <div
@@ -16,20 +17,68 @@
 >
   <div class="modal__dialog" data-modal-dialog>
     <header class="modal__header">
-      <h3 class="modal__title" id="trailer-modal-title">
-        The Last Spartan: avance del proyecto
-      </h3>
-      <button class="btn btn--compact" type="button" data-modal-close>Cerrar</button>
+      <div class="modal__header-info">
+        <span class="modal__badge">GAMEPLAY BETA</span>
+        <h3 class="modal__title" id="trailer-modal-title">
+          The Last Spartan: Avance del Proyecto
+        </h3>
+      </div>
+      <button class="btn btn--compact" type="button" data-modal-close aria-label="Cerrar modal">
+        Cerrar
+      </button>
     </header>
 
-    <div class="modal__video">
-      <div>
-        <p class="modal__play" aria-hidden="true">▶</p>
-        <p class="modal__note">
-          El tráiler y la demo jugable de la beta de la Parte 1 se publicarán aquí.<br />
-          Mientras tanto, este espacio muestra el estado del proyecto.
-        </p>
+    <div class="modal__video-container">
+      <video
+        class="modal__video-player"
+        controls
+        playsinline
+        preload="metadata"
+        data-modal-video
+      >
+        <source src={withBase('/videoJuegoBeta/The-Last-Spartan.mp4')} type="video/mp4" />
+        Tu navegador no soporta la reproducción de video HTML5.
+      </video>
+
+      {/* Pantalla final interactiva que asoma cuando termina el video */}
+      <div class="modal__endscreen" data-modal-endscreen hidden>
+        <div class="modal__endscreen-box">
+          <span class="modal__endscreen-badge">FIN DEL AVANCE</span>
+          <h4 class="modal__endscreen-title">¿Listo para blandir la lanza?</h4>
+          <p class="modal__endscreen-text">
+            Prueba la demo jugable de la Parte 1 directamente en tu navegador:
+          </p>
+          <div class="modal__endscreen-actions">
+            <a
+              class="btn btn--primary modal__btn-play"
+              href="https://2026b-sof-jueg-gr1.github.io/alpusig-erick-jueg-gr3/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ⚔️ Jugar The Last Spartan
+            </a>
+            <button class="btn btn--compact modal__btn-replay" type="button" data-modal-replay>
+              ↺ Repetir video
+            </button>
+          </div>
+        </div>
       </div>
+    </div>
+
+    {/* Barra inferior de acceso al juego */}
+    <div class="modal__cta-bar" data-modal-cta>
+      <div class="modal__cta-text-group">
+        <p class="modal__cta-lead">Demo jugable en línea disponible:</p>
+        <p class="modal__cta-sub">Accede y experimenta el combate de la Parte 1.</p>
+      </div>
+      <a
+        class="btn btn--primary modal__cta-link"
+        href="https://2026b-sof-jueg-gr1.github.io/alpusig-erick-jueg-gr3/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        The Last Spartan ➔
+      </a>
     </div>
   </div>
 </div>
@@ -42,8 +91,7 @@
   const modal = query('[data-modal]');
 
   if (modal) {
-    mountSafely('trailer-modal', () =>
-      mountTrailerModal({ modal, openers: queryAll('[data-modal-open]') }),
-    );
+    const openers = queryAll('[data-modal-open]');
+    mountSafely('trailer-modal', () => mountTrailerModal({ modal, openers }));
   }
 </script>

@@ -1,5 +1,5 @@
 /**
- * Modal de tráiler / demo.
+ * Modal de tráiler / demo jugable.
  */
 .modal {
   position: fixed;
@@ -8,7 +8,8 @@
   display: grid;
   place-items: center;
   padding: var(--container-inline);
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(6px);
 }
 
 .modal[hidden] {
@@ -17,10 +18,11 @@
 
 .modal__dialog {
   width: 100%;
-  max-width: 760px;
+  max-width: 860px;
   padding: var(--space-md);
   border: 1px solid var(--color-bronze);
   background: var(--color-bg-raised);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.8), var(--glow-bronze);
 }
 
 .modal__header {
@@ -28,34 +30,157 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.modal__header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.modal__badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-bronze);
 }
 
 .modal__title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--color-ink);
 }
 
-.modal__video {
+.modal__video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 1px solid var(--color-line-strong);
+  overflow: hidden;
+}
+
+.modal__video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+
+/* Pantalla final interactiva (Endscreen) */
+.modal__endscreen {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
   display: grid;
   place-items: center;
-  aspect-ratio: 16 / 9;
-  margin: 14px 0;
-  border: 1px solid var(--color-line);
-  background: #000;
-  color: var(--color-ash);
+  padding: var(--space-md);
+  background: rgba(10, 10, 12, 0.94);
+  backdrop-filter: blur(8px);
   text-align: center;
+  animation: modal-fade-in 0.35s ease-out;
 }
 
-.modal__play {
+.modal__endscreen[hidden] {
+  display: none;
+}
+
+.modal__endscreen-box {
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.modal__endscreen-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
   color: var(--color-blood-bright);
-  font-size: 3rem;
-  line-height: 1;
 }
 
-.modal__note {
+.modal__endscreen-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--color-bronze);
+  margin: 0;
+}
+
+.modal__endscreen-text {
   font-size: 0.95rem;
+  color: var(--color-ash);
+  margin: 0 0 var(--space-xs);
+  line-height: 1.5;
 }
 
-/* Bloqueo del scroll de fondo mientras el diálogo está abierto. */
+.modal__endscreen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.modal__btn-play {
+  box-shadow: var(--glow-blood);
+}
+
+/* Barra inferior de acceso al juego */
+.modal__cta-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  padding: 12px 18px;
+  border: 1px solid var(--color-line);
+  background: rgba(197, 155, 72, 0.05);
+  transition:
+    border-color var(--duration-fast) var(--easing),
+    box-shadow var(--duration-fast) var(--easing);
+}
+
+.modal__cta-bar.is-highlighted {
+  border-color: var(--color-bronze);
+  box-shadow: var(--glow-bronze);
+}
+
+.modal__cta-text-group {
+  text-align: left;
+}
+
+.modal__cta-lead {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+.modal__cta-sub {
+  font-size: 0.8rem;
+  color: var(--color-ash);
+  margin: 0;
+}
+
+.modal__cta-link {
+  white-space: nowrap;
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Bloqueo del scroll de fondo mientras el diálogo está abierto */
 body.has-modal {
   overflow: hidden;
 }
